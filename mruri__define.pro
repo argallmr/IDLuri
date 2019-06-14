@@ -355,7 +355,7 @@ RELAXED_TSTART=relaxed_tstart, $
 VERSION=version
 	Compile_Opt idl2
 	On_Error, 2
-
+	
 	;Filter by time
 	files = self -> FilterTime( files, $
 	                            COUNT          = count, $
@@ -468,7 +468,7 @@ COUNT=count
 	;  - If the file name has an END time, parse up to the first repeated token.
 	IF tf_fend $
 		THEN MrTimeParser, file_filt, strmid(self.fpattern, 0, iRepeat+2+token_pos[0]), outPattern, fstart $
-		ELSE MrTimeParser, file_filt, self.fpattern, tpattern, fstart
+		ELSE MrTimeParser, file_filt, self.fpattern, outPattern, fstart
 
 	;Convert the END time to an integer
 	IF tf_fend THEN BEGIN
